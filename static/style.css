@@ -1,0 +1,116 @@
+body {
+    background: #f5f5f5;
+    font-family: Arial, sans-serif;
+    transition: background 0.3s, color 0.3s;
+}
+
+body.dark {
+    background: #222;
+    color: #ddd;
+}
+
+.container {
+    width: 90%;
+    max-width: 700px;
+    margin: 40px auto;
+}
+
+.card {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.1);
+}
+
+body.dark .card {
+    background: #333;
+}
+
+textarea, input[type=text] {
+    width: 100%;
+    padding: 10px;
+    margin-top: 10px;
+}
+
+button {
+    margin-top: 10px;
+    padding: 10px 15px;
+    background: #ffcc00;
+    border: none;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.theme-toggle {
+    position: fixed;
+    top: 15px;
+    right: 15px;
+    background: #ffcc00;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    border-radius: 50%;
+}
+
+/* Progress Bar */
+
+.progress-container {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 30px;
+}
+
+.progress-step {
+    text-align: center;
+    width: 20%;
+}
+
+.circle {
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    border: 3px solid #bbb;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+    font-weight: bold;
+}
+
+.progress-step.active .circle {
+    border-color: #ffcc00;
+    color: black;
+}
+
+.label {
+    margin-top: 5px;
+    font-size: 12px;
+}
+
+/* Toast Message */
+.toast {
+    position: fixed;
+    bottom: 25px;
+    right: 25px;
+    background: #4CAF50;
+    color: white;
+    padding: 14px 20px;
+    border-radius: 8px;
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.4s ease, transform 0.4s ease;
+    z-index: 9999;
+    font-weight: bold;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+
+.toast.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Dark mode Toast */
+body.dark .toast {
+    background: #2ecc71;
+    color: #222;
+}

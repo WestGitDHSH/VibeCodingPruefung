@@ -1,0 +1,20 @@
+{
+    "abc123": {
+        "date": "15.11.2025",
+        "location": "Sozialzentrum Mitte 24xxx Kiel, Raum R204",
+        "staff": "Frau Müller",
+        "type": "Erstberatung",
+        "documents": [
+            "Personalausweis",
+            "Ärztliche Stellungnahme",
+            "Medizinische Unterlagen (optional)"
+        ],
+        "notes": [
+            "Wo muss ich hin?",
+            "test\r\n",
+            "test\r\n",
+            "Test"
+        ],
+        "progress": 2
+    }
+}
