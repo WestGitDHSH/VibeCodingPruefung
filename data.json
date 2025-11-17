@@ -9,12 +9,7 @@
             "Ärztliche Stellungnahme",
             "Medizinische Unterlagen (optional)"
         ],
-        "notes": [
-            "Wo muss ich hin?",
-            "test\r\n",
-            "test\r\n",
-            "Test"
-        ],
+        "notes": [],
         "progress": 2
     }
 }
