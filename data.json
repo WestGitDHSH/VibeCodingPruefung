@@ -1,15 +1,55 @@
 {
     "abc123": {
-        "date": "15.11.2025",
-        "location": "Sozialzentrum Mitte 24xxx Kiel, Raum R204",
-        "staff": "Frau Müller",
-        "type": "Erstberatung",
+      "date": "15.11.2025",
+      "location": "Sozialzentrum Mitte 24xxx Kiel, Raum R204",
+      "staff": "Frau Müller",
+      "type": "Erstberatung",
+      "documents": [
+        "Personalausweis",
+        "Ärztliche Stellungnahme",
+        "Medizinische Unterlagen (optional)"
+      ],
+      "notes": [],
+      "progress": 4
+    },
+
+      "lfg601": {
+        "date": "16.12.2025",
+        "location": "Sozialzentrum Ost 24xxx Kiel, Raum R107",
+        "staff": "Frau Fleißig",
+        "type": "Hilfeplangespräch",
         "documents": [
-            "Personalausweis",
-            "Ärztliche Stellungnahme",
-            "Medizinische Unterlagen (optional)"
+          "letzter Gesamtplan",
+          "---"
         ],
         "notes": [],
         "progress": 2
+      },
+
+        "mop935": {
+          "date": "3.07.2025",
+          "location": "Sozialzentrum Süd 24xxx Kiel, Raum R63",
+          "staff": "Herr Büromann",
+          "type": "Hilfestellung Antragstellung",
+          "documents": [
+            "Antragsunterlagen Wohngeld",
+            "Einkommensnachweise"
+          ],
+          "notes": [],
+          "progress": 5
+        },
+
+
+          "buy634": {
+        "date": "16.12.2025",
+        "location": "Sozialzentrum Süd-West 24xxx Kiel, Raum R5",
+        "staff": "Frau Osnabrück",
+        "type": "Jugendamttermin",
+        "documents": [
+          "Platzhalter Jugendamtdokument",
+          "---"
+        ],
+        "notes": [],
+        "progress": 1
+          }
     }
-}
