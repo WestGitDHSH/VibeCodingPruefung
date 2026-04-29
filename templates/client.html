@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<title>Terminübersicht</title>
+<link rel="stylesheet" href="/static/style.css">
+<script src="/static/theme.js"></script>
+</head>
+<body>
+
+<button class="theme-btn" onclick="toggleTheme()">🌙</button>
+
+<div class="container">
+
+<h1>Terminübersicht</h1>
+
+<div class="progress-bar">
+<div class="step active">1</div>
+<div class="line"></div>
+<div class="step active">2</div>
+<div class="line"></div>
+<div class="step">3</div>
+<div class="line"></div>
+<div class="step">4</div>
+<div class="line"></div>
+<div class="step">5</div>
+</div>
+
+<p><strong>Datum:</strong> {{ client.date }}</p>
+<p><strong>Ort:</strong> {{ client.location }}</p>
+<p><strong>Fachkraft:</strong> {{ client.staff }}</p>
+
+<h3>Benötigte Unterlagen</h3>
+<ul>
+{% for d in client.documents %}
+<li>{{ d }}</li>
+{% endfor %}
+</ul>
+
+<form method="POST" enctype="multipart/form-data">
+
+<h3>Dokument hochladen</h3>
+<input type="file" name="file">
+
+<h3>Nachricht</h3>
+<textarea name="note"></textarea>
+
+<button type="submit">Absenden</button>
+
+</form>
+
+</div>
+
+</body>
+</html>

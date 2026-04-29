@@ -1,18 +1,34 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-    <meta charset="UTF-8">
-    <title>Client-ID Eingabe</title>
-    <link rel="stylesheet" href="/static/style.css">
+<meta charset="UTF-8">
+<title>Startseite</title>
+<link rel="stylesheet" href="/static/style.css">
 </head>
 <body>
 
-<div class="container">
-    <h1>Client-ID eingeben</h1>
-    <form method="POST">
-        <input type="text" name="client_id" placeholder="z.B. abc123" required>
-        <button type="submit">Weiter</button>
-    </form>
+<div class="split-container">
+
+<div class="box">
+<h2>Klient*innen</h2>
+
+<form method="POST">
+<input type="text" name="client_id" placeholder="Client-ID eingeben" required>
+<button type="submit">Weiter</button>
+</form>
+</div>
+
+
+<div class="box">
+<h2>Fachkräfte</h2>
+
+<form method="POST">
+<input type="text" name="username" placeholder="Benutzername" required>
+<input type="password" name="password" placeholder="Passwort" required>
+<button type="submit">Login</button>
+</form>
+</div>
+
 </div>
 
 </body>

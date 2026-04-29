@@ -1,55 +1,61 @@
 {
     "abc123": {
-      "date": "15.11.2025",
-      "location": "Sozialzentrum Mitte 24xxx Kiel, Raum R204",
-      "staff": "Frau Müller",
-      "type": "Erstberatung",
-      "documents": [
-        "Personalausweis",
-        "Ärztliche Stellungnahme",
-        "Medizinische Unterlagen (optional)"
-      ],
-      "notes": [],
-      "progress": 4
+        "date": "15.11.2025",
+        "location": "Sozialzentrum Mitte 24114 Kiel, Raum R204",
+        "staff": "Frau Jana Müller",
+        "type": "Erstberatung",
+        "documents": [
+            "Personalausweis",
+            "Ärztliche Stellungnahme",
+            "Medizinische Unterlagen (optional)"
+        ],
+        "documents_uploaded": [],
+        "notes": [],
+        "progress": 4
     },
-
-      "lfg601": {
+    "lfg601": {
         "date": "16.12.2025",
-        "location": "Sozialzentrum Ost 24xxx Kiel, Raum R107",
-        "staff": "Frau Fleißig",
+        "location": "Sozialzentrum Süd-Ost 24103 Kiel, Raum R107",
+        "staff": "Frau Sabine Fleißig",
         "type": "Hilfeplangespräch",
         "documents": [
-          "letzter Gesamtplan",
-          "---"
+            "letzter Gesamtplan"
         ],
+        "documents_uploaded": [],
         "notes": [],
         "progress": 2
-      },
-
-        "mop935": {
-          "date": "3.07.2025",
-          "location": "Sozialzentrum Süd 24xxx Kiel, Raum R63",
-          "staff": "Herr Büromann",
-          "type": "Hilfestellung Antragstellung",
-          "documents": [
+    },
+    "mop935": {
+        "date": "03.07.2025",
+        "location": "Sozialzentrum Süd 24114 Kiel, Raum R63",
+        "staff": "Herr Marko Büromann",
+        "type": "Hilfestellung Antragstellung",
+        "documents": [
             "Antragsunterlagen Wohngeld",
             "Einkommensnachweise"
-          ],
-          "notes": [],
-          "progress": 5
-        },
-
-
-          "buy634": {
-        "date": "16.12.2025",
-        "location": "Sozialzentrum Süd-West 24xxx Kiel, Raum R5",
-        "staff": "Frau Osnabrück",
-        "type": "Jugendamttermin",
-        "documents": [
-          "Platzhalter Jugendamtdokument",
-          "---"
         ],
-        "notes": [],
+        "documents_uploaded": [],
+        "notes": [
+            "Wo bekomme ich die Unterlagen her?",
+            "Bearbeitungsstatus?",
+            "How much is the 🐟?",
+            "How much is the 🐟?"
+        ],
+        "progress": 5
+    },
+    "buy634": {
+        "date": "16.12.2025",
+        "location": "Sozialzentrum Mitte 24114 Kiel, Raum R204",
+        "staff": "Frau Jana Müller",
+        "type": "Bedarfsermittlung",
+        "documents": [
+            "Bogen zur Bedarfsermittlung",
+            "Klinikbericht"
+        ],
+        "documents_uploaded": [],
+        "notes": [
+            "hallo!"
+        ],
         "progress": 1
-          }
     }
+}

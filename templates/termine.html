@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<title>Termine</title>
+<link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+
+<div class="container">
+
+<h1>Termine</h1>
+
+<table>
+<tr>
+<th>Client-ID</th>
+<th>Datum</th>
+<th>Ort</th>
+<th>Fachkraft</th>
+</tr>
+
+{% for cid, info in data.items() %}
+<tr>
+<td>{{ cid }}</td>
+<td>{{ info.date }}</td>
+<td>{{ info.location }}</td>
+<td>{{ info.staff }}</td>
+</tr>
+{% endfor %}
+
+</table>
+
+<a href="/dashboard"><button>Zurück</button></a>
+
+</div>
+
+</body>
+</html>

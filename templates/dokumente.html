@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<title>Dokumente</title>
+<link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+
+<div class="container">
+
+<h1>Dokumente</h1>
+
+<ul>
+{% for cid, doc in docs %}
+<li>{{ cid }} - {{ doc }}</li>
+{% endfor %}
+</ul>
+
+<a href="/dashboard"><button>Zurück</button></a>
+
+</div>
+
+</body>
+</html>
