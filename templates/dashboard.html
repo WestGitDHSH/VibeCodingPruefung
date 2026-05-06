@@ -11,6 +11,12 @@
 
 <h1>Willkommen {{ user }}</h1>
 
+{% if session["role"] == "admin" %}
+<a href="/create_client">
+    <button>+ Neuer Client</button>
+</a>
+{% endif %}
+
 <a href="/termine"><button>Termine</button></a>
 <a href="/dokumente"><button>Dokumente</button></a>
 <a href="/logout"><button>Logout</button></a>

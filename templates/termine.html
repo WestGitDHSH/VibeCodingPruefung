@@ -17,14 +17,45 @@
 <th>Datum</th>
 <th>Ort</th>
 <th>Fachkraft</th>
+<th>Aktion</th>
+<th>Aktionen</th>
 </tr>
 
-{% for cid, info in data.items() %}
+{% for row in data %}
 <tr>
-<td>{{ cid }}</td>
-<td>{{ info.date }}</td>
-<td>{{ info.location }}</td>
-<td>{{ info.staff }}</td>
+<td>{{ row["client_id"] }}</td>
+<td>{{ row["date"] }}</td>
+<td>{{ row["location"] }}</td>
+<td>{{ row["staff"] }}</td>
+
+<td>
+{% for row in data %}
+<tr>
+<td>{{ row["client_id"] }}</td>
+<td>{{ row["date"] }}</td>
+<td>{{ row["location"] }}</td>
+<td>{{ row["staff"] }}</td>
+
+<td>
+{% if session["role"] == "admin" %}
+
+<div class="menu-container">
+    <button class="menu-btn" onclick="toggleMenu(this)">⋮</button>
+
+    <div class="menu-dropdown">
+        <a href="/edit_client/{{ row['client_id'] }}">Bearbeiten</a>
+
+        <form method="POST" action="/delete_client/{{ row['client_id'] }}" onsubmit="return confirmDelete()">
+            <button type="submit" class="delete-btn">Löschen</button>
+        </form>
+    </div>
+</div>
+
+{% else %}
+-
+{% endif %}
+</td>
+
 </tr>
 {% endfor %}
 

@@ -12,8 +12,8 @@
 <h1>Dokumente</h1>
 
 <ul>
-{% for cid, doc in docs %}
-<li>{{ cid }} - {{ doc }}</li>
+{% for row in docs %}
+<li>{{ row["client_id"] }} - {{ row["filename"] }}</li>
 {% endfor %}
 </ul>
 

@@ -14,28 +14,9 @@
 
 <h1>Terminübersicht</h1>
 
-<div class="progress-bar">
-<div class="step active">1</div>
-<div class="line"></div>
-<div class="step active">2</div>
-<div class="line"></div>
-<div class="step">3</div>
-<div class="line"></div>
-<div class="step">4</div>
-<div class="line"></div>
-<div class="step">5</div>
-</div>
-
-<p><strong>Datum:</strong> {{ client.date }}</p>
-<p><strong>Ort:</strong> {{ client.location }}</p>
-<p><strong>Fachkraft:</strong> {{ client.staff }}</p>
-
-<h3>Benötigte Unterlagen</h3>
-<ul>
-{% for d in client.documents %}
-<li>{{ d }}</li>
-{% endfor %}
-</ul>
+<p><strong>Datum:</strong> {{ client["date"] }}</p>
+<p><strong>Ort:</strong> {{ client["location"] }}</p>
+<p><strong>Fachkraft:</strong> {{ client["staff"] }}</p>
 
 <form method="POST" enctype="multipart/form-data">
 

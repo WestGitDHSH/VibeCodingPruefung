@@ -57,34 +57,52 @@ padding:10px;
 border:1px solid #ddd;
 }
 
-.progress-bar{
-display:flex;
-align-items:center;
-margin:30px 0;
-}
-
-.step{
-width:35px;
-height:35px;
-border-radius:50%;
-background:#ccc;
-display:flex;
-justify-content:center;
-align-items:center;
-}
-
-.step.active{
-background:#ffcc00;
-}
-
-.line{
-flex:1;
-height:4px;
-background:#ccc;
-}
-
 .theme-btn{
 position:fixed;
 top:20px;
 right:20px;
+}
+
+.menu-container {
+    position: relative;
+    display: inline-block;
+}
+
+.menu-btn {
+    background: transparent;
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.menu-dropdown {
+    display: none;
+    position: absolute;
+    right: 0;
+    background: white;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    min-width: 140px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    z-index: 100;
+}
+
+.menu-dropdown a,
+.menu-dropdown button {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    text-align: left;
+    border: none;
+    background: none;
+    cursor: pointer;
+}
+
+.menu-dropdown a:hover,
+.menu-dropdown button:hover {
+    background: #f4f4f4;
+}
+
+.delete-btn {
+    color: red;
 }
