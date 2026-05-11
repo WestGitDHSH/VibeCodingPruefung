@@ -3,8 +3,17 @@
 <head>
 <meta charset="UTF-8">
 <title>Termine</title>
-<link rel="stylesheet" href="/static/style.css">
+
+
+<head>
+    <meta charset="UTF-8">
+    <title>Termine</title>
+
+    <link rel="stylesheet" href="/static/style.css">
+
+    <script src="/static/theme.js"></script>
 </head>
+
 <body>
 
 <div class="container">
@@ -12,51 +21,62 @@
 <h1>Termine</h1>
 
 <table>
+
 <tr>
-<th>Client-ID</th>
-<th>Datum</th>
-<th>Ort</th>
-<th>Fachkraft</th>
-<th>Aktion</th>
-<th>Aktionen</th>
+    <th>Client-ID</th>
+    <th>Datum</th>
+    <th>Ort</th>
+    <th>Fachkraft</th>
+    <th>Aktionen</th>
 </tr>
 
 {% for row in data %}
+
 <tr>
-<td>{{ row["client_id"] }}</td>
-<td>{{ row["date"] }}</td>
-<td>{{ row["location"] }}</td>
-<td>{{ row["staff"] }}</td>
 
-<td>
-{% for row in data %}
-<tr>
-<td>{{ row["client_id"] }}</td>
-<td>{{ row["date"] }}</td>
-<td>{{ row["location"] }}</td>
-<td>{{ row["staff"] }}</td>
+    <td>{{ row["client_id"] }}</td>
+    <td>{{ row["date"] }}</td>
+    <td>{{ row["location"] }}</td>
+    <td>{{ row["staff"] }}</td>
 
-<td>
-{% if session["role"] == "admin" %}
+    <td>
 
-<div class="menu-container">
-    <button class="menu-btn" onclick="toggleMenu(this)">⋮</button>
+    {% if session["role"] == "admin" %}
 
-    <div class="menu-dropdown">
-        <a href="/edit_client/{{ row['client_id'] }}">Bearbeiten</a>
+    <div class="menu-container">
 
-        <form method="POST" action="/delete_client/{{ row['client_id'] }}" onsubmit="return confirmDelete()">
-            <button type="submit" class="delete-btn">Löschen</button>
-        </form>
+        <button class="menu-btn" onclick="toggleMenu(this)">
+            ⋮
+        </button>
+
+        <div class="menu-dropdown">
+
+            <a href="{{ url_for('edit_client_page', client_id=row['client_id']) }}">
+                Bearbeiten
+            </a>
+
+            <form method="POST"
+                  action="/delete_client/{{ row['client_id'] }}"
+                  onsubmit="return confirmDelete()">
+
+                <button type="submit" class="delete-btn">
+                    Löschen
+                </button>
+
+            </form>
+
+        </div>
+
     </div>
-</div>
 
-{% else %}
--
-{% endif %}
-</td>
+    {% else %}
+        -
+    {% endif %}
+
+    </td>
 
 </tr>
+
 {% endfor %}
 
 </table>

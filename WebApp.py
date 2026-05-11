@@ -2,7 +2,7 @@ import os
 import sqlite3
 import random
 from functools import wraps
-from flask import Flask, render_template, request, redirect, url_for, session, flash
+from flask import Flask, render_template, request, redirect, url_for, session, flash, send_from_directory
 from werkzeug.utils import secure_filename
 
 app = Flask(__name__)
@@ -119,6 +119,23 @@ def login_required(f):
 
 def allowed_file(filename):
     return "." in filename and filename.rsplit(".", 1)[1].lower() in ALLOWED_EXTENSIONS
+
+
+# ---------------------------------------------------
+# Datei anzeigen / herunterladen
+# ---------------------------------------------------
+@app.route("/uploads/<filename>")
+@login_required
+def uploaded_file(filename):
+
+    # Nur Admin
+    if session["role"] != "admin":
+        return "Kein Zugriff"
+
+    return send_from_directory(
+        app.config["UPLOAD_FOLDER"],
+        filename
+    )
 
 
 # ---------------------------------------------------
@@ -263,24 +280,18 @@ def dokumente():
 
     conn = get_db()
 
-    if session["role"] == "admin":
-        docs = conn.execute("""
-            SELECT uploads.client_id, uploads.filename
-            FROM uploads
-        """).fetchall()
-
-    else:
-        docs = conn.execute("""
-            SELECT uploads.client_id, uploads.filename
-            FROM uploads
-            JOIN clients
-            ON uploads.client_id = clients.client_id
-            WHERE clients.staff=?
-        """, (session["fullname"],)).fetchall()
+    uploads = conn.execute("""
+        SELECT *
+        FROM uploads
+        ORDER BY id DESC
+    """).fetchall()
 
     conn.close()
 
-    return render_template("dokumente.html", docs=docs)
+    return render_template(
+        "dokumente.html",
+        uploads=uploads
+    )
 
 # -----------------------------------
 # Client einfügen
@@ -374,6 +385,67 @@ def delete_client(client_id):
     flash(f"Client {client_id} wurde gelöscht")
     return redirect(url_for("termine"))
 
+# ---------------------------------------------------
+# Client bearbeiten
+# ---------------------------------------------------
+@app.route("/edit_client/<client_id>", methods=["GET", "POST"])
+@login_required
+def edit_client_page(client_id):
+
+    # Nur Admin darf bearbeiten
+    if session["role"] != "admin":
+        return "Kein Zugriff"
+
+    conn = get_db()
+
+    # Client laden
+    client = conn.execute(
+        "SELECT * FROM clients WHERE client_id=?",
+        (client_id,)
+    ).fetchone()
+
+    # Falls Client nicht existiert
+    if not client:
+        conn.close()
+        return "Client nicht gefunden"
+
+    # Formular wurde abgeschickt
+    if request.method == "POST":
+
+        date = request.form["date"]
+        location = request.form["location"]
+        staff = request.form["staff"]
+        progress = request.form["progress"]
+
+        conn.execute("""
+            UPDATE clients
+            SET
+                date=?,
+                location=?,
+                staff=?,
+                progress=?
+            WHERE client_id=?
+        """, (
+            date,
+            location,
+            staff,
+            progress,
+            client_id
+        ))
+
+        conn.commit()
+        conn.close()
+
+        flash("Client erfolgreich aktualisiert")
+
+        return redirect(url_for("termine"))
+
+    conn.close()
+
+    return render_template(
+        "edit_client.html",
+        client=client
+    )
 
 # ---------------------------------------------------
 # Logout

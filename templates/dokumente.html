@@ -1,23 +1,64 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-<meta charset="UTF-8">
-<title>Dokumente</title>
-<link rel="stylesheet" href="/static/style.css">
+
+    <meta charset="UTF-8">
+
+    <title>Dokumente</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+
 </head>
+
 <body>
 
 <div class="container">
 
-<h1>Dokumente</h1>
+    <h1>Dokumente</h1>
 
-<ul>
-{% for row in docs %}
-<li>{{ row["client_id"] }} - {{ row["filename"] }}</li>
-{% endfor %}
-</ul>
+    <table>
 
-<a href="/dashboard"><button>Zurück</button></a>
+        <tr>
+            <th>Client-ID</th>
+            <th>Datei</th>
+            <th>Aktion</th>
+        </tr>
+
+        {% for file in uploads %}
+
+        <tr>
+
+            <td>{{ file["client_id"] }}</td>
+
+            <td>{{ file["filename"] }}</td>
+
+            <td>
+
+                <a href="{{ url_for('uploaded_file', filename=file['filename']) }}"
+                   target="_blank">
+
+                    <button>
+                        Öffnen
+                    </button>
+
+                </a>
+
+            </td>
+
+        </tr>
+
+        {% endfor %}
+
+    </table>
+
+    <br>
+
+<a href="/dashboard">
+    <button>
+        Zurück zum Hauptmenü
+    </button>
+</a>
 
 </div>
 
