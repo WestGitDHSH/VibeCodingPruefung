@@ -18,6 +18,32 @@
 <p><strong>Ort:</strong> {{ client["location"] }}</p>
 <p><strong>Fachkraft:</strong> {{ client["staff"] }}</p>
 
+<h2>Status</h2>
+
+<div class="progress-container">
+
+    <div class="step {% if client['progress'] >= 1 %}active{% endif %}">
+        Antrag eingegangen
+    </div>
+
+    <div class="step {% if client['progress'] >= 2 %}active{% endif %}">
+        Termin vereinbart
+    </div>
+
+    <div class="step {% if client['progress'] >= 3 %}active{% endif %}">
+        Unterlagen vollständig
+    </div>
+
+    <div class="step {% if client['progress'] >= 4 %}active{% endif %}">
+        Antrag in Bearbeitung
+    </div>
+
+    <div class="step {% if client['progress'] >= 5 %}active{% endif %}">
+        Antrag abgeschlossen
+    </div>
+
+</div>
+
 <form method="POST" enctype="multipart/form-data">
 
 <h3>Dokument hochladen</h3>

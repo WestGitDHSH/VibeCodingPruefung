@@ -106,3 +106,27 @@ right:20px;
 .delete-btn {
     color: red;
 }
+
+.progress-container {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    margin: 30px 0;
+    flex-wrap: wrap;
+}
+
+.step {
+    flex: 1;
+    min-width: 140px;
+    background: #ddd;
+    padding: 12px;
+    border-radius: 20px;
+    text-align: center;
+    font-size: 14px;
+}
+
+.step.active {
+    background: #f5c542;
+    font-weight: bold;
+    color: black;
+}
